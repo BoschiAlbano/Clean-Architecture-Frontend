@@ -1,0 +1,4 @@
+.is-Active {
+    font-weight: bold;
+    pointer-events: none;
+}
