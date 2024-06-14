@@ -1,19 +1,19 @@
 import { toast } from "sonner";
 import NavLink from "../../../../components/navLink/navLink";
 import { useAuthActions } from "../../../../redux/slices/auth/hook/useAuthActions";
-
-const Menu = ({ titulo = "" }: { titulo: string }) => {
+import SwitchMode from "../../../../components/switchMode/switchMode";
+const Menu = () => {
     const { Logout } = useAuthActions();
 
     return (
-        <nav className="h-[80px] w-full flex flex-row justify-between items-center bg-slate-200 px-5">
-            <NavLink to="/">
-                <p className=" text-black text-2xl font-extrabold">{titulo}</p>
-            </NavLink>
+        <nav className="  z-[99] top-0 right-0 h-[60px] w-full flex flex-row justify-between items-center  shadow-xl px-4 bg-[var(--Transparente)]">
+            <div className="relative">
+                <SwitchMode />
+            </div>
 
-            <ul className=" flex flex-row justify-center items-center gap-10">
+            <ul className=" flex flex-row justify-center items-center gap-10 ">
                 <li>
-                    <NavLink to={"/rickandmorty"}>Rick And Morty</NavLink>
+                    <NavLink to={"/"}>Rick And Morty</NavLink>
                 </li>
                 <li>
                     <NavLink to={"/Obtener"}>Ver lista</NavLink>
@@ -21,7 +21,7 @@ const Menu = ({ titulo = "" }: { titulo: string }) => {
             </ul>
 
             <button
-                className=" text-black text-xl font-bold bg-transparent"
+                className=" text-xl font-bold bg-transparent "
                 onClick={() => {
                     {
                         toast("¿Quiere Cerrar Sesion?", {

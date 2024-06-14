@@ -39,8 +39,10 @@ const Actualizar = () => {
     };
 
     return (
-        <div className="w-full flex flex-col justify-center items-center">
-            <h1>Actualizar Rick And Morty Store</h1>
+        <div className=" relative  w-full  flex flex-col justify-start items-center gap-5  py-4">
+            <h1 className="w-full text-center font-serif rounded-[5px]">
+                Actualizar Rick And Morty Store
+            </h1>
 
             <section className=" w-full flex flex-row justify-center items-center flex-wrap gap-5">
                 {rickandmortyData && (
@@ -53,6 +55,7 @@ const Actualizar = () => {
                             <input
                                 className="w-[80%] text-center py-2 bg-slate-300"
                                 type="text"
+                                disabled={true}
                                 placeholder={rickandmortyData.id.toString()}
                                 name="id"
                                 defaultValue={rickandmortyData.id}

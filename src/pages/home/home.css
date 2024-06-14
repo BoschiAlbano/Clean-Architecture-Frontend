@@ -1,0 +1,6 @@
+.rickandmorty-bg {
+    background: url("/rickandmortyHome.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+}

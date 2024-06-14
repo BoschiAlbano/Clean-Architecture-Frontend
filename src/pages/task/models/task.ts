@@ -13,6 +13,18 @@ export interface ApiRickAndMorty {
     created: Date;
 }
 
+export interface Info {
+    count: number;
+    pages: number;
+    next: string | null;
+    prev: string | null;
+}
+
+export interface ApiDataResult {
+    info: Info;
+    results: ApiRickAndMorty[];
+}
+
 export interface Location {
     name: string;
     url: string;
@@ -45,6 +57,11 @@ export interface DetalleRickAndMorty {
 
 export interface errorFetch {
     error: string;
+}
+
+export interface StoreDataResult {
+    info: Info;
+    results: StoreRickAndMorty[];
 }
 
 export type DetalleRickAndMortyEmpty = DetalleRickAndMorty & errorFetch;

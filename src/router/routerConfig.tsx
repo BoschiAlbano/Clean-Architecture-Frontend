@@ -9,18 +9,22 @@ import {
 
 export const routesPages = [
     {
+        index: false,
         path: "actualizar/:id",
         element: <Actualizar />,
     },
     {
+        index: false,
         path: "detalle/:tareaId",
         element: <Detalle />,
     },
     {
+        index: true,
         path: "rickandmorty",
         element: <RickAndMorty />,
     },
     {
+        index: false,
         path: "Obtener",
         element: <Listar />,
     },

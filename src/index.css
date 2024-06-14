@@ -2,30 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
 :root {
+    --Color-1: #0d0302;
+    --Color-4: #ffffff;
+    --Color-2: #ceaa16;
+    --Color-3: #59a139;
+    --Transparente: #8d8d8d3d;
+    --texto: #ceaa16;
+    --fondo: #0d0302;
+    --texto-secundario: #ffffff;
+    --verde: #59a139;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    --Scrollbar-Color: #cea9169a;
+    --Scrollbar-thumb-Color: #58a13996;
+
     /* line-height: 1.5; */
     /* font-weight: 400; */
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
 
-    font-synthesis: none;
+    /* font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale; */
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background: var(--Scrollbar-Color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--Scrollbar-thumb-Color);
+    border-radius: 5px;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
-        background-color: #ffffff;
+        --texto: #0d0302;
+        --texto-secundario: #ceaa16;
+        --fondo: #ffffff;
     }
-    a:hover {
-        color: #747bff;
-    }
-    button {
-        background-color: #f9f9f9;
-    }
+}
+
+a:hover {
+    color: var(--verde);
+    font-weight: bold;
+}
+
+.button {
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+/* Con un boton y un estado */
+.CambiarModoCssClaro {
+    --texto: #0d0302;
+    --texto-secundario: #59a139;
+    --fondo: #ffffff;
+    --Color-1: #0d0302;
+    --Color-4: #ffffff;
+    --Transparente: #8d8d8d3d;
+}
+
+.CambiarModoCssOscuro {
+    --texto: #ceaa16;
+    --fondo: #0d0302;
+    --texto-secundario: #ffffff;
+    --Color-1: #ffffff;
+    --Color-4: #0d0302;
+    --Transparente: #5050503d;
 }

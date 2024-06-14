@@ -50,7 +50,7 @@ export function CreateLocalStorage<T>(
         // Crear
         window.localStorage.setItem(llave, JSON.stringify(valor));
     } catch (error) {
-        toast.error("Error, al Guardar la session...");
+        toast.error("Error, al Guardar en Local Storage");
     }
 
     return valor;
@@ -63,7 +63,7 @@ export function DeleteLocalStorage<T>(
     try {
         window.localStorage.removeItem(llave);
     } catch (error) {
-        toast.error("Error, al eliminar la sesion...");
+        toast.error("Error, al eliminar en Local Storage");
     }
     return valor;
 }
@@ -76,7 +76,28 @@ export function GetlocalStorage<T>(
         const Auth = window.localStorage.getItem(llave);
         return Auth ? JSON.parse(Auth) : valor;
     } catch (error) {
-        toast.error("Error, al Obtener la sesion...");
+        toast.error("Error, al Obtener en Local Storage");
+    }
+    return valor;
+}
+
+export function UpdatelocalStorage<T>(
+    llave: string,
+    valor: T,
+    newvalor: T
+): useLocalStorageType<T> {
+    try {
+        // Buscar
+        const Auth = window.localStorage.getItem(llave);
+
+        if (!Auth) return valor;
+
+        // Actualizo
+        window.localStorage.setItem(llave, JSON.stringify(newvalor));
+
+        return newvalor;
+    } catch (error) {
+        toast.error("Error, al Obtener en Local Storage");
     }
     return valor;
 }
@@ -185,4 +206,23 @@ export function CreateRickandmorty<T>(
 
         return valor;
     }
+}
+
+export function GetOrCreatelocalStorage<T>(
+    llave: string,
+    valor: T
+): useLocalStorageType<T> {
+    try {
+        const Auth = window.localStorage.getItem(llave);
+
+        if (Auth) {
+            return JSON.parse(Auth);
+        } else {
+            window.localStorage.setItem(llave, JSON.stringify(valor));
+            return valor;
+        }
+    } catch (error) {
+        toast.error("Error, al Obtener en Local Storage");
+    }
+    return valor;
 }

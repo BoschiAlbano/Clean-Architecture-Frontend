@@ -1,0 +1,68 @@
+.rickWallpaper {
+    background: url("/rickWallpaper.jpg") no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+}
+
+.showDown {
+    transition-duration: 1s;
+    transform: translatey(0%);
+}
+
+.showUp {
+    transition-duration: 1s;
+    transform: translatey(100%);
+}
+
+.rotateUp {
+    animation: arrowAnimated 0.8s both;
+}
+
+@keyframes arrowAnimated {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+.rotateDown {
+    animation: arrowAnimated2 0.8s both;
+}
+
+@keyframes arrowAnimated2 {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mover {
+    animation: shake-vertical 2s both infinite;
+}
+@keyframes shake-vertical {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateY(-3px);
+    }
+    20%,
+    40%,
+    60% {
+        transform: translateY(3px);
+    }
+    80% {
+        transform: translateY(2.2px);
+    }
+    90% {
+        transform: translateY(-2.2px);
+    }
+}

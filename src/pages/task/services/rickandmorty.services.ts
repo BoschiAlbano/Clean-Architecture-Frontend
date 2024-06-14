@@ -5,7 +5,7 @@ import {
 import {
     DetalleRickAndMorty,
     DetalleRickAndMortyEmpty,
-    StoreRickAndMorty,
+    StoreDataResult,
     errorFetch,
 } from "../models";
 
@@ -13,9 +13,10 @@ const URL_ApiRickandmorty = "https://rickandmortyapi.com";
 
 export async function GetCharacterByName(
     keyName: string,
+    page: number,
     abortController: AbortController
-): Promise<StoreRickAndMorty[]> {
-    const url = `${URL_ApiRickandmorty}/api/character/?name=${keyName}`;
+): Promise<StoreDataResult> {
+    const url = `${URL_ApiRickandmorty}/api/character/?name=${keyName}&page=${page}`;
 
     // Opcion 1
     // const response = await fetch(url);
@@ -27,7 +28,7 @@ export async function GetCharacterByName(
 
     return await fetch(url, { signal: abortController.signal })
         .then((response) => response.json())
-        .then((json) => adapterRickandmorty(json.results));
+        .then((json) => adapterRickandmorty(json));
 }
 
 export async function GetCharacterById(

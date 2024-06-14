@@ -33,13 +33,23 @@ export const AppRouter = () => {
                     {/* Las rutas anidadas tienen el path - relativo osea sin "/" */}
                     {/* y el Outlet en el padre*/}
                     {routesPages.map((route, index) => {
-                        return (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                element={route.element}
-                            />
-                        );
+                        if (route.index) {
+                            return (
+                                <Route
+                                    key={index}
+                                    index
+                                    element={route.element}
+                                />
+                            );
+                        } else {
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={route.element}
+                                />
+                            );
+                        }
                     })}
                 </Route>
 

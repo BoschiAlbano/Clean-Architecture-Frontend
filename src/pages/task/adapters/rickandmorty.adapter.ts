@@ -2,21 +2,19 @@ import { fechaISO } from "../../../utils/fecha";
 import {
     ApiRickAndMorty,
     DetalleRickAndMorty,
-    StoreRickAndMorty,
+    StoreDataResult,
+    ApiDataResult,
 } from "../models";
 
-export function adapterRickandmorty(
-    fetchRickandmorty: ApiRickAndMorty[]
-): StoreRickAndMorty[] {
-    return fetchRickandmorty.map((data) => {
-        return {
-            id: data.id,
-            name: data.name,
-            gender: data.gender,
-            image: data.image,
-            species: data.species,
-        };
-    });
+export function adapterRickandmorty(api: ApiDataResult): StoreDataResult {
+    const { info, results } = api;
+
+    const resultado: StoreDataResult = {
+        info: info,
+        results: results,
+    };
+
+    return resultado;
 }
 
 export function adapterRickandmortyDetalle(

@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { useFetch } from "./hooks/useFetch";
 import { GetCharacterById } from "./services/rickandmorty.services";
 import { toast } from "sonner";
-import Back from "./components/back.svg";
 
 const Detalle = () => {
     const { tareaId } = useParams();
@@ -17,8 +16,8 @@ const Detalle = () => {
     );
 
     return (
-        <div className=" relative w-full">
-            <h1 className="w-full text-center">
+        <div className=" relative  w-full  flex flex-col justify-start items-center gap-5  py-4">
+            <h1 className="w-full text-center font-serif rounded-[5px]">
                 Obtener el Detalle del personaje con id: {tareaId} desde la api
                 rick and morty
             </h1>
@@ -38,11 +37,10 @@ const Detalle = () => {
                 )}
             </section>
 
-            <div className=" absolute top-0 right-0 rounded-full h-[50px] w-[50px]">
+            {/* <div className=" absolute top-0 right-0 rounded-full h-[50px] w-[50px]">
                 <Link to={"/Obtener"}>
-                    <Back></Back>
                 </Link>
-            </div>
+            </div> */}
 
             {!loading && error ? toast.error(error) : null}
         </div>
