@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useFetch } from "./hooks/useFetch";
 import { GetCharacterById } from "./services/rickandmorty.services";
@@ -36,11 +36,6 @@ const Detalle = () => {
                     </div>
                 )}
             </section>
-
-            {/* <div className=" absolute top-0 right-0 rounded-full h-[50px] w-[50px]">
-                <Link to={"/Obtener"}>
-                </Link>
-            </div> */}
 
             {!loading && error ? toast.error(error) : null}
         </div>
